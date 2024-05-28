@@ -1,16 +1,16 @@
 # Google Maps Examples with React-Native
 
-This application includes a few features included in React-Native-Map.
+This application includes some of the features of React-Native-Map.
 <br/>
-It was developed using Google Maps.
+It has been developed using Google Maps.
 
-## This project offers us:
+## This project offers us
 
-- the current location of the user in an animated way,
+- An animated display of the user's current position,
 - two types of map selection,
-- zoom in and zoom out features,
-- polygon of a few districts of Ankara province,
-- polygon creation on the map as we want
+- zoom in and zoom out functions,
+- the polygons of different districts of Ankara,
+- create polygons on the map as we wish
 
 <h2> Find the screen gif below </h2>
 

@@ -8,7 +8,12 @@ import {
   View,
 } from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
-import MapView, {Marker, PROVIDER_GOOGLE, Polygon} from 'react-native-maps';
+import MapView, {
+  Callout,
+  Marker,
+  PROVIDER_GOOGLE,
+  Polygon,
+} from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import * as eva from '@eva-design/eva';
 import {ApplicationProvider} from '@ui-kitten/components';
@@ -30,6 +35,38 @@ const App = () => {
   const [polygon, setPolygon] = useState([]);
   const [polygonCoordinates, setPolygonCoordinates] = useState([]);
   //console.log(mycoordinates);
+
+  const Homes = [
+    {
+      coordinate: {
+        latitude: 39.970684,
+        longitude: 32.73165,
+      },
+      title: 'Restaurant 111',
+      description: 'Best Delicious',
+      rating: '4.7',
+    },
+
+    {
+      coordinate: {
+        latitude: 41.0492233,
+        longitude: 29.002234,
+      },
+      title: 'Restaurant 222',
+      description: 'Best Delicious',
+      rating: '3.8',
+    },
+
+    {
+      coordinate: {
+        latitude: 41.059375,
+        longitude: 29.0011011,
+      },
+      title: 'Restaurant 333',
+      description: 'Best Delicious',
+      rating: '5.0',
+    },
+  ];
 
   const CoordsAnkara = {
     latitude: 39.94755,
@@ -249,6 +286,28 @@ const App = () => {
               strokeWidth={2}
             />
           )}
+          {Homes.map((marker, index) => (
+            <Marker key={index} coordinate={marker.coordinate}>
+              <Callout
+                onPress={() => console.warn('tıkland')}
+                title={marker.title}
+                description={marker.description}
+                rating={marker.rate}>
+                <View
+                  style={{
+                    width: 70,
+                    height: 25,
+                    padding: 0,
+                    margin: 0,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: 'pink',
+                  }}>
+                  <Text>MErhaba</Text>
+                </View>
+              </Callout>
+            </Marker>
+          ))}
         </MapView>
         <View style={styles.PolygonButtonContainer}>
           <TouchableOpacity style={styles.PolygonButton} onPress={clearPolygon}>
